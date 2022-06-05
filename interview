@@ -1,0 +1,58 @@
+pytest with selenium
+
+behave 
+
+i have around 8 years of experience and most of my experience is in automation.
+so wrt automation i have worked on ui automation using behave as bdd frnaework in python and pytest. I have been part of designing api automation framework using pytest and request module 
+apart from this i have expsoure in jenkins for setting up the pipeline and automation jobs .. to some extent i have experience in docker , ansible and nagios tools so nagios is used for config monitoring and ansible is conig deployment.
+
+i have been part of agile process from start of my career so i know the all the process terninologies like scurm ,sprint,sprint planning , kanban mode etc
+
+if you allow me maybe i will quickly go through the automation framework for ui and api 
+so in my  previous company i was working on product called bw.. the main agenda of the product was to create end to end application..........................................
+so as part of ui utility we used to import the ear file run it check the logs ..even you can change inputs to pallets and rerun the application.
+	>we have created no of suites (sweetss) smoke ,sanity and regression where we are running some of the ear files of customers 
+	>we have implemented some useful features of pytest like i will just go one on one as per the flow of framework 
+		#so we have created conftest.py this is useful when you want to create common methods for the all the testcases... so you need to create fixtures and you want to use those fixtures in all the files 
+		for example login is the method which needes to be there in each testcase ,,, so just write it to conftest as fixture and if you use autouse=true so you dont even need to mention it in respective testcases
+		
+		#so part from login and teardown methods we have addressed two imp things
+		1st one is hang issue ..we often see in our environment or customers environment that we are getting hang problem all of the sudden and if your testcases running in the console for which you dont have access then in pytest they have provided one module called psutil 
+		using which we can find out the pid for pytest... op would be file name and method name with cpu and disk utilization
+		
+		#as a part of selenium automation yiu need webdrivers to run the testcases so basically using webdrivermanger you dont need to set the path of driver
+		webdrivermanager will take care of everything ..it will check browserversion and download particular webdriver (driver = webdriver.Chrome(chromedrivermanager.install()) )
+		
+		#we have implemented object repository so initializing of he object repository file (.ini) file is done in conftest.py
+		
+	> even selecting browser we are doing that in conftest so that you dont need towrite the code in each testcases
+	
+	autouse= true and scope= session
+	
+	
+	
+	
+REST API Automation :
+ here apart from verifying the responses from get post put patch delete requests we had added some more verifications
+		> Timeout = 10 sec
+         if timeout is 10 sec then post executing we shld get api response in time only
+        
+		>max_retries = 3 import httpaddapter lib and set max retry option
+		
+		>we can create session object for persisting parameters rather than using those in each request 
+		for example authorization details like username and password 
+		
+		>ssl certification verification (verify=false)
+		
+		> cache 
+		
+		
+		
+		
+
+	
+	
+	
+	
+		
+		
